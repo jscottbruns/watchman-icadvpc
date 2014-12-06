@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WatchmanAlerting xmlns:ns6="http://niem.gov/niem/domains/jxdm/4.0"
+                  xmlns:ns7="http://niem.gov/niem/ansi-nist/2.0"
+                  xmlns:fhwm="http://fhwm.net/xsd/1.2/ICadDispatch"
+                  xmlns:ns1="http://niem.gov/niem/structures/2.0"
+                  xmlns:ns2="http://niem.gov/niem/domains/emergencyManagement/2.0"
+                  xmlns:ns3="http://niem.gov/niem/niem-core/2.0"
+                  xmlns:ns4="http://fhwm.net/xsd/ICadDispatch">
+   <IncidentNo>1234_EVENT_NO</IncidentNo>
+   <EventNo>PF123INC_NO</EventNo>
+   <Priority>1</Priority>
+   <RadioTac>4</RadioTac>
+   <DispatchDate>
+        2009-05-27T17:30:57
+      </DispatchDate>
+   <IncidentStatus>
+      <CurrentStatus>DISPATCHED</CurrentStatus>
+      <Entry>2009-05-27T17:30:57</Entry>
+      <Open>2009-05-27T17:32:57</Open>
+      <Dispatched>2009-05-27T17:33:59</Dispatched>
+   </IncidentStatus>
+   <CallType>
+      <Nature>Dog Attack</Nature>
+      <TypeCode>ALS</TypeCode>
+   </CallType>
+   <IncidentLocation>
+      <BoxArea>987</BoxArea>
+      <Location>
+         <StreetName>1 Elm St</StreetName>
+         <StreetName>Suite 300</StreetName>
+      </Location>
+      <CrossStreet>
+         <StreetName>1 Elm St</StreetName>
+         <StreetName>1 Elm St</StreetName>
+      </CrossStreet>
+      <GPSCoords>
+         <GPSLatitude>
+            <Degree>1.0</Degree>
+            <Minute>1.0</Minute>
+            <Second>1.0</Second>
+         </GPSLatitude>
+         <GPSLongitude>
+            <Degree>1.0</Degree>
+            <Minute>1.0</Minute>
+            <Second>1.0</Second>
+         </GPSLongitude>
+      </GPSCoords>
+   </IncidentLocation>
+   <UnitDispatch>
+      <UnitList>E100 E104 E105 E106</UnitList>
+      <Assigned>E100</Assigned>
+      <Assigned>E104</Assigned>
+      <Assigned>E105</Assigned>
+      <Assigned>E106</Assigned>
+   </UnitDispatch>
+   <IncidentComments>
+      <Comment>
+         <EntryTime>2011-10-25T12:14:49</EntryTime>
+         <EntryID>012354_001</EntryID>
+         <Text>asdf</Text>
+      </Comment>
+      <Comment>
+         <EntryTime>2011-10-25T12:14:49</EntryTime>
+         <EntryID>012354_0013</EntryID>
+         <Text>asdf</Text>
+      </Comment>
+   </IncidentComments>
+   <Metadata>
+      <DispatchService>FFXRMS</DispatchService>
+      <Jurisdiction>Fairfax County</Jurisdiction>
+   </Metadata>
+</WatchmanAlerting>

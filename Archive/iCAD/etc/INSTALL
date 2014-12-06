@@ -1,0 +1,128 @@
+* Guided sqlrelay/freetds/mssql installation guide: http://plone.org/documentation/kb/ms-sql-server-on-linux
+
+* Install sqlrelay, freetds and sqsh:
+
+apt-get install sqlrelay-freetds sqsh OR yum install sqlrelay-freetds sqsh
+
+* FreeTDS Configuration:
+
+* Edit  /etc/freetds/freetds.conf and uncomment your favorite config:
+	# A typical MS SQL Server 7.0 configuration
+	;[sqlserver70]
+	;	host = 192.168.1.1
+	;	port = 1433
+	;	tds version = 7.0
+
+	# A typical MS SQL Server 2000 configuration
+	;[sqlserver2000]
+	;	host = 192.168.1.1
+	;	port = 1433
+	;	tds version = 8.0
+
+* Download & install SQSH command line SQL client - http://sourceforge.net/projects/sqsh/files
+* Set necessary environment variables in /etc/profile.d/freetds.sh
+export FREETDS=/etc/freetds.conf
+export SYBASE=/usr/local/freetd
+export TDSDUMP=/var/log/freetds.log 
+
+
+* Test your freetds-connection to mssql server with SQSH
+
+sqsh -I /etc/freetds/freetds.conf -U MSSQL_USERNAME -P "MSSQL_PASSWORD" -D MSSQL_DATABASE -S sqlServer70 -C "Select top 10 * from sysobjects;"
+
+* Optionally, install iSQL + unixODBC
+* Edit /etc/odbc.ini
+
+* Edit /etc/odbcinst.ini
+[TDS]
+Description	= FreeTDS.org
+Driver		= /usr/local/lib/libtdsodbc.so
+Setup		= /usr/lib/odbc/libtdsS.so
+UsageCount	= 1
+FileUsage	= 1
+
+
+* Edit /etc/odbc.ini
+[CambriaDSN]
+Driver	= TDS
+Description	= MSSQL Server
+Trace	= No
+Server	= 192.168.85.103
+Database	= Istatus
+Port	= 1433
+TDS Version	= 8.0
+
+[SQLR-ODBC]
+Driver = /usr/local/lib/libsqlrodbc.so
+Description = SQL Relay ODBC MSSQL Connection
+Server = 192.168.85.103
+Trace = No
+Database = Istatus
+Port = 1433
+
+* Test odbc connection with isql:
+#> isql CambriaDSN fa firehouseautomation -v
+
+** In the event of error message:
+[01000][unixODBC][FreeTDS][SQL Server]Unable to connect to data source
+[01000][unixODBC][FreeTDS][SQL Server]Adaptive Server connection failed
+[01000][unixODBC][FreeTDS][SQL Server]Unexpected EOF from the server
+
+*** => Prevent EOF errors above by either running command with TDSVER prefix
+#> TDSVER=8.0 isql CambriaDSN fa firehouseautomation -v
+*** => OR set env var TDSVER:
+#> export TDSVER=8.0 ( or possibly 7.0 or higher for different sql server versions)
+
+### The table sysobjects should display right away, if not your configuration of freetds.conf or sqsh is wrong ###
+
+* Edit  /etc/sqlrelay/sqlrelay.conf :
+
+# For MySQL servers on localhost, use socket instead of host:port:
+# user=testuser;password=testpassword;db=testdb;socket=/var/lib/mysql/mysql.sock
+# As oppossed to:
+# user=testuser;password=testpassword;db=testdb;host=localhost;port=5432
+
+<?xml version="1.0"?>
+<!DOCTYPE instances SYSTEM "sqlrelay.dtd">
+<instances>
+   <instance id="mssql" port="9000" socket="/tmp/examplesocket" dbase="freetds" connections="1" maxconnections="15" maxqueuelength="5" growby="1" ttl="60" endofsession="commit" sessiontimeout="600" runasuser="nobody" runasgroup="nobody" cursors="5" authtier="listener" handoff="pass" debug="none">
+      <users>
+         <user user="mssql1" password="mssql1"/>
+      </users>
+      <connections>
+         <connection connectionid="db1" string="sybase=/etc/freetds/freetds.conf;user=sa;password=;server=sqlserver70;db=Northwind;" metric="1"/>
+      </connections>
+   </instance>
+</instances>
+
+
+* Add the following new line to /etc/sqlrelay/instances :
+
+mssql /etc/sqlrelay/sqlrelay.conf
+
+* Manually Start SQL Relay
+sqlr-start -id mssql or
+/etc/init.d/sqlrelay start
+
+* Add SQL Relay as startup service
+chkconfig --add sqlrelay
+service sqlrelay start
+
+* Connect to SQLRelay instance and run queries from the command line:
+sqlrsh -id instancename
+
+* Edit MySQL config /etc/mysql/my.cnf with unix socket location
+socket=/var/run/mysqld/mysqld.sock
+
+* Reduce the TIME_WAIT timeout to 30 seconds for faster client bleed-off
+echo 30 > /proc/sys/net/ipv4/tcp_fin_timeout
+
+* Enable TCP reuse & recycle flags
+echo 1 > /proc/sys/net/ipv4/tcp_tw_reuse
+echo 1 > /proc/sys/net/ipv4/tcp_tw_recycle
+
+* Increase the TCP local port range (default to 1024-4999 - Show current setting: /sbin/sysctl net.ipv4.ip_local_port_range)
+/sbin/sysctl -w net.ipv4.ip_local_port_range="1024 65535" # Increase port range to 1024-65535 ** Make sure command is put in system startup script to ensure boot execution
+
+
+

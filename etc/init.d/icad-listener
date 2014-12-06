@@ -1,0 +1,78 @@
+#!/bin/bash
+#
+# Startup script for icad-listener
+#
+# chkconfig: 345 85 15
+# description: WatchmanAlerting iCAD Listener Server is a CAD-based server agent for receiving incoming incident data sent from CAD system
+# processname: icad-listener
+# pidfile: /var/run/icad-listener.pid
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+DESC="iCAD Event Listener Service "
+NAME=icad-listener
+DAEMON="/usr/local/watchman-icad/bin/icad-listener"
+DAEMON_ARGS=""
+PIDFILE=/var/run/$NAME.pid
+LOCKFILE=/var/lock/subsys/$NAME
+
+[ -x $DAEMON ] || exit 0
+
+[ -f /etc/sysconfig/icad-listener ] && . /etc/sysconfig/icad-listener
+
+RETVAL=0
+
+stop() 
+{
+	echo -n "Stopping "$DESC
+    killproc $NAME
+    RETVAL=$?
+	echo
+    if [ $RETVAL -eq 0 ]; then
+        rm -f $LOCKFILE
+        rm -f $PIDFILE
+    fi
+}
+
+start()
+{
+    echo -n "Starting "$DESC
+	daemon $DAEMON $DAEMON_ARGS
+	RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch $LOCKFILE
+    
+    return $RETVAL
+}
+
+restart() {
+    stop
+    sleep 1
+    start
+}
+
+case "$1" in
+  start)
+	start
+    ;;
+  stop)
+	stop
+    ;;
+  restart)
+	restart
+	;;
+  condrestart)
+    [ -e $LOCKFILE ] && restart
+    RETVAL=$?
+    ;;	
+  status)
+    status $NAME
+    ;;
+  *)
+  echo $DESC" ["$NAME"]"
+  echo "Usage: "$1" {start|stop|restart|condrestart|status}"
+  exit 1
+esac
+
+exit $?

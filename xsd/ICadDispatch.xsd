@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema
+	xmlns:ext="http://fhwm.net/xsd/ICadDispatch"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:fhwm="http://fhwm.net/xsd/1.2/ICadDispatch"
+	xmlns:nc="http://niem.gov/niem/niem-core/2.0"
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://fhwm.net/xsd/1.2/ICadDispatch">
+	<xsd:import namespace="http://fhwm.net/xsd/ICadDispatch" schemaLocation="./ICadDispatch/extension.xsd"/>
+	<xsd:import namespace="http://niem.gov/niem/niem-core/2.0" schemaLocation="./niem/niem-core/2.0/niem-core.xsd"/>
+	<xsd:complexType name="ICadDispatchType">
+		<xsd:annotation>
+			<xsd:documentation/>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="nc:DocumentType">
+				<xsd:sequence>
+					<xsd:element ref="ext:Payload" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element ref="ext:VoiceAlertData" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element ref="ext:ExchangeMetadata" minOccurs="0" maxOccurs="unbounded"/>					
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ICadDispatch" type="fhwm:ICadDispatchType">
+		<xsd:annotation>
+			<xsd:documentation/>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

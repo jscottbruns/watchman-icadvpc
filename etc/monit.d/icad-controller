@@ -1,0 +1,4 @@
+check process icad-controller
+    with pidfile /var/run/icad-controller.pid
+    start = "/etc/init.d/icad-controller start"
+    stop  = "/etc/init.d/icad-controller stop"

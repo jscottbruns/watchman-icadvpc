@@ -1,0 +1,16 @@
+# SQL Relay instances
+# This file contains a list of instances (defined in sqlrelay.conf)
+# that should be started by the init script at system startup.
+# <instance id="iCAD" port="" socket= ...
+# Instance name should correspond to instance->id (iCAD)
+#
+# If this file is missing or empty (except for comments like this),
+# sqlrelay is not started by the init script.
+#
+# Examples (see /usr/share/doc/sqlrelay/README.Debian):
+#
+# example1
+# example2 /home/fmw/sqlrelay.conf
+
+eoc911 /etc/sqlrelay/sqlrelay.conf
+iCAD /etc/sqlrelay/sqlrelay.conf

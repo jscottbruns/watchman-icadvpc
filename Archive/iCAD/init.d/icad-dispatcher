@@ -1,0 +1,49 @@
+#!/bin/bash
+#
+# Startup script for icad-dispatcher
+#
+# chkconfig: 345 85 15
+# description: WatchmanAlerting iCAD Dispatch Server is a CAD-based remote incident dispatch service
+# processname: icad-dispatcher
+# pidfile: /var/run/icad-dispatcher.pid
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+RETVAL=0
+LOCKFILE=/var/lock/icad-dispatcher
+DAEMON=/usr/local/bin/icad-dispatcher
+prog="icad-dispatcher"
+
+case "$1" in
+  start)
+
+        echo -n "Starting WatchmanAlerting iCAD Dispatch Server: "
+        daemon $DAEMON
+        RETVAL=$?
+        echo
+        [ $RETVAL -eq 0 ] && touch $LOCKFILE
+        ;;
+  stop)
+        echo -n "Stopping WatchmanAlerting iCAD Dispatch Server: "
+        killproc $prog
+        RETVAL=$?
+        echo
+        [ $RETVAL -eq 0 ] && rm -f $LOCKFILE && rm -f $PIDFILE
+        ;;
+  status)
+        status $prog
+        RETVAL=$?
+        ;;
+  restart)
+        $0 stop
+        $0 start
+        RETVAL=$?
+        ;;
+  *)
+        echo "Usage: $0 {start|stop|restart|status}"
+        RETVAL=3
+        ;;
+esac
+
+exit $RETVAL

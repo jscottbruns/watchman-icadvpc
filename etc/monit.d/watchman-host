@@ -1,0 +1,9 @@
+check host icad-ctrl with address 10.254.16.5
+	group ipsec
+    depends on ipsec-openswan
+    alert watchman-monitor@fhwm.net	
+    if failed icmp type echo count 3 with timeout 5 seconds for 3 cycles then alert
+    if failed url http://icad/token/172.20.10.1 
+    	and content == '172.20.10.1 icad-ctrl ok'
+    	with timeout 5 seconds for 2 cycles
+    	then alert

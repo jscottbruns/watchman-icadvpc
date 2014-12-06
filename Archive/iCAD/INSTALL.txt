@@ -1,0 +1,14 @@
+Required SQL Relay Modules: 
+
+sqlrelay - SQL Relay Base Module
+php5-sqlrelay - SQL Relay PHP API
+sqlrelay-odbc - SQL Relay ODBC connection daemon
+sqlrelay-mysql - SQL Relay MySQL connection daemon
+sqlrelay-freetds - SQL Relay FreeTDS (Sybase & MSSQL) connection daemon
+libfirstworks-sqlr-perl - SQL Relay Perl API
+libdbd-sqlrelay-perl - SQL Relay Perl DBD API (optional)
+sqlrelay-doc - SQL Relay documentation & examples
+
+freetds-bin - FreeTDS command line utilities
+sqsh - Command line client for Sybase & MSSQL Servers
+unixODBC - Optional alternative to FreeTDS MSSQL drive

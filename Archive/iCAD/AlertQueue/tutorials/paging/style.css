@@ -1,0 +1,105 @@
+body {
+	margin: 25px 0 20px 0;
+	padding: 0;
+	font-family: "Georgia";
+	font-size: 12px;
+	text-align:center;
+	font-family: Lucida Grande, Tahoma, sans-serif;
+	background-color:#FFFBEF;
+}
+
+#container {
+	width: 700px;
+	margin: 0 auto;
+}
+
+#info {
+	width:700px;
+	margin:0 auto;
+}
+
+#view {
+	float: left;
+	width: 27%;
+	margin: 10px 33px;
+	padding: 10px 0;
+}
+
+#previous {
+	float: left;
+	width: 30%;
+	height: 260px;
+	padding: 10px 0;
+	margin:10px 0 10px 0;
+	background-color: #FFFCDF;
+	border: 1px solid #EFEAB3;
+	clear:both;
+}
+
+#next {
+	float: left;
+	width: 30%;
+	height: 260px;
+	margin:10px 0 10px 0;
+	padding: 10px 0;
+	background-color: #FFFCDF;
+	border: 1px solid #EFEAB3;
+}
+#currentRec{
+	clear:both;
+	font-weight:bold;
+	font-size:1.5em;
+	color:#DF4545;
+}
+
+table {
+	margin:10px auto;
+	border-collapse: collapse;
+}
+
+#next td, #previous td {
+color:#AF9141;
+	padding:5px 3px;
+	font-family: "Georgia";
+	font-size: 11px;
+	border-bottom: 1px solid #EFEAB3;
+	font-family: Lucida Grande, Tahoma, sans-serif;
+}
+
+#view td{
+	padding: 6px 5px;
+	font-family: "Georgia";
+	font-size: 11px;
+	font-family: Lucida Grande, Tahoma, sans-serif;
+}
+
+#view tr.alt {
+	background-color: #D9EFA4;
+}
+
+#previousLink {
+	width: 25%;
+	float: left;
+	text-align: center;
+	font-size:1.5em;
+}
+
+#nextLink {
+	width: 22%;
+	float: left;
+	text-align: center;
+	font-size:1.5em;
+}
+
+.titles {
+	width: 25%;
+	text-align: center;
+	float: left;
+	color:#666;
+}
+#flashSidebar{
+display:none;
+}
+a{
+color:green;
+}

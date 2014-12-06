@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<schema
+	xmlns:scr="http://niem.gov/niem/domains/screening/2.0"
+	xmlns:niem-xsd="http://niem.gov/niem/proxy/xsd/2.0"
+	xmlns:ext="http://fhwm.net/xsd/ICadDispatch"
+	xmlns:j="http://niem.gov/niem/domains/jxdm/4.0"
+	xmlns:ansi-nist="http://niem.gov/niem/ansi-nist/2.0"
+	xmlns:intel="http://niem.gov/niem/domains/intelligence/2.0"
+	xmlns:s="http://niem.gov/niem/structures/2.0"
+	xmlns:nc="http://niem.gov/niem/niem-core/2.0"
+	xmlns:em="http://niem.gov/niem/domains/emergencyManagement/2.0"
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://fhwm.net/xsd/ICadDispatch">
+	<import namespace="http://niem.gov/niem/proxy/xsd/2.0" schemaLocation="../niem/proxy/xsd/2.0/xsd.xsd"/>
+	<import namespace="http://niem.gov/niem/domains/emergencyManagement/2.0" schemaLocation="../niem/domains/emergencyManagement/2.0/emergencyManagement.xsd"/>
+	<import namespace="http://niem.gov/niem/structures/2.0" schemaLocation="../niem/structures/2.0/structures.xsd"/>
+	<import namespace="http://niem.gov/niem/domains/intelligence/2.0" schemaLocation="../niem/domains/intelligence/2.0/intelligence.xsd"/>
+	<import namespace="http://niem.gov/niem/ansi-nist/2.0" schemaLocation="../niem/ansi-nist/2.0/ansi-nist.xsd"/>
+	<import namespace="http://niem.gov/niem/niem-core/2.0" schemaLocation="../niem/niem-core/2.0/niem-core.xsd"/>
+	<import namespace="http://niem.gov/niem/domains/screening/2.0" schemaLocation="../niem/domains/screening/2.0/screening.xsd"/>
+	<import namespace="http://niem.gov/niem/domains/jxdm/4.0" schemaLocation="../niem/domains/jxdm/4.0/jxdm.xsd"/>
+	<complexType name="CommentType">
+		<annotation>
+			<documentation>Structure that contains comment information</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="s:ComplexObjectType">
+				<sequence>
+					<element ref="nc:CommentText" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="ext:CommentDateTime" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="j:ServiceCallOperator" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="nc:OrganizationIdentification" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="nc:SourceIDText" minOccurs="0" maxOccurs="unbounded"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="ContactInformationType">
+		<annotation>
+			<documentation>Structure that extends nc:ContactInformationType</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="nc:ContactInformationType">
+				<sequence>
+					<element ref="ext:TelephoneAugmentation" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="scr:TelephoneNumberAugmentation" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="scr:PersonNameAugmentation" minOccurs="0" maxOccurs="unbounded"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="DataSubmitterMetadataType">
+		<annotation>
+			<documentation>Structure that contains information about the submitter of data</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="s:ComplexObjectType">
+				<sequence>
+					<element ref="nc:OrganizationIdentification" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="nc:ContactInformationDescriptionText" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="nc:OrganizationName" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="nc:PersonFullName" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="intel:SystemIdentifier" minOccurs="0" maxOccurs="unbounded"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="ExchangeMetadataType">
+		<annotation>
+			<documentation>Structure that contains metadata information about an exchange</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="s:ComplexObjectType">
+				<sequence>
+					<element ref="ext:TransactionMetadata" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="ext:DataSubmitterMetadata" minOccurs="0" maxOccurs="unbounded"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="LocationAugmentationType">
+		<annotation>
+			<documentation>Additional location information</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="s:AugmentationType">
+				<sequence>
+					<element ref="ext:CoordinateDateTime" minOccurs="0" maxOccurs="unbounded"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="MetadataType">
+		<annotation>
+			<documentation>Structure that extends s:MetadataType</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="s:MetadataType">
+				<sequence>
+					<element ref="ext:MetadataAugmentation" minOccurs="0" maxOccurs="unbounded"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="MetadataAugmentationType">
+		<annotation>
+			<documentation>Structure that contains additional Metadata elements</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="s:AugmentationType">
+				<sequence>
+					<element ref="ext:TerminalID" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="ext:SubmissionDateTime" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="ext:MessageSequenceNumber" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="ext:MessageDateTime" minOccurs="0" maxOccurs="unbounded"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="OrganizationLocationType">
+		<annotation>
+			<documentation>A structure extending nc:LocationType</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="nc:LocationType">
+				<sequence>
+					<element ref="ext:LocationAugmentation" minOccurs="0" maxOccurs="unbounded"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="OrganizationType">
+		<annotation>
+			<documentation>Structure that extends nc:OrganizationType</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="nc:OrganizationType">
+				<sequence>
+					<element ref="j:OrganizationAugmentation" minOccurs="0" maxOccurs="unbounded"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="PayloadType">
+		<annotation>
+			<documentation>Structure that contains business-oriented information</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="s:ComplexObjectType">
+				<sequence>
+					<element ref="ext:Resource" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="ext:ContactInformation" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="ext:Agency" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="ext:ServiceCall" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="nc:OrganizationContactInformationAssociation" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="nc:OrganizationOwnsItemAssociation" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="ext:ServiceCallAssignedUnit" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="ansi-nist:TransactionOriginatingOrganization" minOccurs="0" maxOccurs="unbounded"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="ResourceAugmentationType">
+		<annotation>
+			<documentation>Structure that contains additional information about a first responder resource</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="s:AugmentationType">
+				<sequence>
+					<element ref="ext:CapabilityUnitMeasure" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="ext:RequestCommentsText" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="ext:RequestQuantityText" minOccurs="0" maxOccurs="unbounded"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="ResourceType">
+		<annotation>
+			<documentation>Structure that extends em:ResourceType</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="em:ResourceType">
+				<sequence>
+					<element ref="ext:ResourceAugmentation" minOccurs="0" maxOccurs="unbounded"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="ServiceCallAssignedUnitType">
+		<annotation>
+			<documentation>Describes the service call organization</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="nc:OrganizationType">
+				<sequence>
+					<element ref="ext:OrganizationLocation" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="ext:Incident" minOccurs="0"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="ServiceCallAugmentationType">
+		<annotation>
+			<documentation>Structure that contains additional information about a call for service</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="s:AugmentationType">
+				<sequence>
+					<element ref="ext:CurrentStatus" minOccurs="0" maxOccurs="1"/>
+					<element ref="ext:FireSeverityLevelText" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="ext:CallTypeText" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="ext:CallSubTypeText" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="ext:CallPriorityText" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="ext:Comment" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="ext:Staging" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="nc:SubstanceCategoryText" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="ext:IncidentId" minOccurs="0"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="ServiceCallResponseLocationType">
+		<annotation>
+			<documentation>Structure that extends nc:LocationType</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="nc:LocationType">
+				<sequence>
+					<element ref="ext:ServiceCallResponseLocationAugmentation" minOccurs="0" maxOccurs="unbounded"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="ServiceCallResponseLocationAugmentationType">
+		<annotation>
+			<documentation>Structure that contains additional information about a response location</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="s:AugmentationType">
+				<sequence>
+					<element ref="ext:CellIDText" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="ext:CellSectorIDText" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="ext:CoordinateDateTime" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="nc:SpeedMeasure" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="ext:UncertaintyDistanceText" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="ext:LocationCrossStreet" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="ext:Firebox" minOccurs="0"/>
+					<element ref="ext:MapGrid" minOccurs="0"/>
+					<element ref="ext:StationGrid" minOccurs="0"/>
+					<element ref="ext:GPSLatitudeDecimal" minOccurs="0"/>
+					<element ref="ext:GPSLongitudeDecimal" minOccurs="0"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="ServiceCallType">
+		<annotation>
+			<documentation>Structure that extends j:ServiceCallType</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="j:ServiceCallType">
+				<sequence>
+					<element ref="ext:ServiceCallAugmentation" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="ext:ServiceCallResponseLocation" minOccurs="0" maxOccurs="unbounded"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="StagingType">
+		<annotation>
+			<documentation>Structure that contains staging information </documentation>
+		</annotation>
+		<complexContent>
+			<extension base="s:ComplexObjectType">
+				<sequence>
+					<element ref="nc:ContactRadioChannelText" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="ext:ResponseLevelText" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="ext:RoutingInstructionsText" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="ext:StagingLocationText" minOccurs="0" maxOccurs="unbounded"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="TelephoneAugmentationType">
+		<annotation>
+			<documentation>Structure that contains additional Telephone Number information</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="s:AugmentationType">
+				<sequence>
+					<element ref="ext:TelephoneCityCodeID" minOccurs="0" maxOccurs="unbounded"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<element name="Agency" type="ext:OrganizationType">
+		<annotation>
+			<documentation>A division of a governmental
+                or international body.</documentation>
+		</annotation>
+	</element>
+	<element name="CallPriorityText" type="nc:TextType">
+		<annotation>
+			<documentation>The priority assigned to
+                the call based on the type of call (burglary,
+                shooting, etc.) and other additional information
+                provided by the caller.
+                </documentation>
+		</annotation>
+	</element>
+	<element name="CallSubTypeText" type="nc:TextType">
+		<annotation>
+			<documentation>Text indicating the sub-type
+                of the call (e.g. Robbery Alarm, Fire Alarm,
+                Intrusion Alarm).
+                </documentation>
+		</annotation>
+	</element>
+	<element name="CallTypeText" type="nc:TextType">
+		<annotation>
+			<documentation>Call type. e.g., Alarm,
+                Burglary, Fire, Accident.
+                </documentation>
+		</annotation>
+	</element>
+	<element name="CapabilityUnitMeasure" type="nc:MeasureType">
+		<annotation>
+			<documentation>Unit of Measure associated
+                with the capability type quantity.
+                </documentation>
+		</annotation>
+	</element>
+	<element name="CellIDText" type="nc:TextType">
+		<annotation>
+			<documentation>Text that specifically identifies
+                a particular cell tower.
+                </documentation>
+		</annotation>
+	</element>
+	<element name="CellSectorIDText" type="nc:TextType">
+		<annotation>
+			<documentation>Text that specifically identifies
+                a particular cell sector.
+                </documentation>
+		</annotation>
+	</element>
+	<element name="Comment" type="ext:CommentType">
+		<annotation>
+			<documentation>Details about general comments
+                being exchanged.</documentation>
+		</annotation>
+	</element>
+	<element name="CommentDateTime" type="nc:DateType">
+		<annotation>
+			<documentation>The date and time a comment
+                was made.</documentation>
+		</annotation>
+	</element>
+	<element name="ContactInformation" type="ext:ContactInformationType">
+		<annotation>
+			<documentation>Details about how to contact
+                a person or an organization.</documentation>
+		</annotation>
+	</element>
+	<element name="CoordinateDateTime" type="nc:DateType">
+		<annotation>
+			<documentation>Date/Time that the coordinates
+                were recorded by the device in UTC.
+                </documentation>
+		</annotation>
+	</element>
+	<element name="DataSubmitterMetadata" type="ext:DataSubmitterMetadataType" nillable="true">
+		<annotation>
+			<documentation>Metadata about the submitter of data</documentation>
+		</annotation>
+	</element>
+	<element name="ExchangeMetadata" type="ext:ExchangeMetadataType">
+		<annotation>
+			<documentation>Metadata about the exchange.</documentation>
+		</annotation>
+	</element>
+	<element name="FireSeverityLevelText" type="nc:TextType">
+		<annotation>
+			<documentation>Indicates the severity of
+                a fire and the corresponding response based
+                on procedure (e.g. three alarm fire).
+                </documentation>
+		</annotation>
+	</element>
+	<element name="LocationAugmentation" type="ext:LocationAugmentationType">
+		<annotation>
+			<documentation>Additional information about
+                a location.</documentation>
+		</annotation>
+	</element>
+	<element name="LocationCrossStreet" type="nc:StreetType">
+		<annotation>
+			<documentation>A location identified by
+                two or more streets which intersect.</documentation>
+		</annotation>
+	</element>
+	<element name="MetadataAugmentation" type="ext:MetadataAugmentationType">
+		<annotation>
+			<documentation>Additional information about
+                metadata.</documentation>
+		</annotation>
+	</element>
+	<element name="MessageDateTime" type="nc:DateType" nillable="true">
+		<annotation>
+			<documentation>The date and time of the
+                message.</documentation>
+		</annotation>
+	</element>
+	<element name="MessageSequenceNumber" type="nc:IdentificationType">
+		<annotation>
+			<documentation>Message Sequence Number
+                uniquely identifies a message from a specific
+                application or service provider. Used for
+                auditing purposes, to track messages for
+                troubleshooting, and to tie results to
+                the originating request.</documentation>
+		</annotation>
+	</element>
+	<element name="OrganizationLocation" type="ext:OrganizationLocationType" nillable="true">
+		<annotation>
+			<documentation>Describes the location of an organization</documentation>
+		</annotation>
+	</element>
+	<element name="Payload" type="ext:PayloadType">
+		<annotation>
+			<documentation>Contains the business information</documentation>
+		</annotation>
+	</element>
+	<element name="RequestCommentsText" type="nc:TextType" nillable="true">
+		<annotation>
+			<documentation>Text information about a request</documentation>
+		</annotation>
+	</element>
+	<element name="RequestQuantityText" type="nc:TextType" nillable="true">
+		<annotation>
+			<documentation>Text information about the number of units requested</documentation>
+		</annotation>
+	</element>
+	<element name="Resource" type="ext:ResourceType">
+		<annotation>
+			<documentation>Information about a particular resource request</documentation>
+		</annotation>
+	</element>
+	<element name="ResourceAugmentation" type="ext:ResourceAugmentationType">
+		<annotation>
+			<documentation>Additional information about
+                a resource.</documentation>
+		</annotation>
+	</element>
+	<element name="ResponseLevelText" type="nc:TextType" nillable="true">
+		<annotation>
+			<documentation>Information about the urgency of the response</documentation>
+		</annotation>
+	</element>
+	<element name="RoutingInstructionsText" type="nc:TextType" nillable="true">
+		<annotation>
+			<documentation>Text instructions for how units should arrive at the location</documentation>
+		</annotation>
+	</element>
+	<element name="ServiceCall" type="ext:ServiceCallType">
+		<annotation>
+			<documentation>Details about a call for
+                service received from a person alerting
+                an authority of a situation.</documentation>
+		</annotation>
+	</element>
+	<element name="ServiceCallAssignedUnit" type="ext:ServiceCallAssignedUnitType">
+		<annotation>
+			<documentation>A response unit responsible
+                for handling a call for service.</documentation>
+		</annotation>
+	</element>
+	<element name="ServiceCallAugmentation" type="ext:ServiceCallAugmentationType">
+		<annotation>
+			<documentation>Additional information about
+                a service call.</documentation>
+		</annotation>
+	</element>
+	<element name="ServiceCallResponseLocation" type="ext:ServiceCallResponseLocationType" nillable="true">
+		<annotation>
+			<documentation>Location of a service call</documentation>
+		</annotation>
+	</element>
+	<element name="ServiceCallResponseLocationAugmentation" type="ext:ServiceCallResponseLocationAugmentationType" nillable="true">
+		<annotation>
+			<documentation>Additional information about a service call</documentation>
+		</annotation>
+	</element>
+	<element name="Staging" type="ext:StagingType" nillable="true">
+		<annotation>
+			<documentation>Staging information for first responders</documentation>
+		</annotation>
+	</element>
+	<element name="StagingLocationText" type="nc:TextType" nillable="true">
+		<annotation>
+			<documentation>Description of the staging location</documentation>
+		</annotation>
+	</element>
+	<element name="SubmissionDateTime" type="nc:DateType">
+		<annotation>
+			<documentation>The date/time that the exchange
+                was submitted.</documentation>
+		</annotation>
+	</element>
+	<element name="TelephoneCityCodeID" type="niem-xsd:string">
+		<annotation>
+			<documentation>Identifier for International telephone number that uniquely identifies a city</documentation>
+		</annotation>
+	</element>
+	<element name="TelephoneAugmentation" type="ext:TelephoneAugmentationType">
+		<annotation>
+			<documentation>Additional information about
+                a telephone number.</documentation>
+		</annotation>
+	</element>
+	<element name="TerminalID" type="nc:IdentificationType">
+		<annotation>
+			<documentation>Uniquely identifies a computer
+                terminal device.</documentation>
+		</annotation>
+	</element>
+	<element name="TransactionMetadata" type="ext:MetadataType">
+		<annotation>
+			<documentation>Information that further
+                qualifies primary data; data about data.</documentation>
+		</annotation>
+	</element>
+	<element name="UncertaintyDistanceText" type="nc:TextType">
+		<annotation>
+			<documentation>A confidence measure derived
+                from the number of cell sites, distance
+                of the coordinates recorded from the cell
+                site, accuracy of measurement of the coordinates
+                and is typically expressed in meters.
+                </documentation>
+		</annotation>
+	</element>
+	<element name="Firebox" type="nc:TextType">
+		<annotation>
+			<documentation>Name of id of a firebox</documentation>
+		</annotation>
+	</element>
+	<element name="MapGrid" type="nc:TextType">
+		<annotation>
+			<documentation>Grid coordinates for mapping clarification</documentation>
+		</annotation>
+	</element>
+	<element name="StationGrid" type="nc:TextType">
+		<annotation>
+			<documentation>Grid or coordinate id within a station response area. Also referred to as runcard</documentation>
+		</annotation>
+	</element>
+	<element name="IncidentId" type="nc:IdentificationType">
+		<annotation>
+			<documentation>Incidient or event identifier</documentation>
+		</annotation>
+	</element>
+	<element name="LocalIncidentId" type="nc:IdentificationType">
+		<annotation>
+			<documentation>Incidient or event identifier for the local system</documentation>
+		</annotation>
+	</element>
+	<element name="RemoteIncidentId" type="nc:IdentificationType">
+		<annotation>
+			<documentation>Incidient or event identifier for the remote system</documentation>
+		</annotation>
+	</element>
+	<complexType name="RemoteIncidentType">
+		<annotation>
+			<documentation>Defines an incident by remote</documentation>
+		</annotation>
+		<sequence>
+			<element ref="nc:OrganizationIdentification" minOccurs="0"/>
+			<element ref="nc:OrganizationName" minOccurs="0"/>
+			<element ref="ext:RemoteIncidentId">
+				<annotation>
+					<documentation>Incidient or event identifier for the remote system</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<element name="RemoteIncident" type="ext:RemoteIncidentType">
+		<annotation>
+			<documentation>Defines an incident by remote</documentation>
+		</annotation>
+	</element>
+	<complexType name="IncidentType">
+		<annotation>
+			<documentation>Defines an identifier for an incident or event</documentation>
+		</annotation>
+		<sequence>
+			<element ref="ext:RemoteIncident" minOccurs="0"/>
+			<element ref="ext:LocalIncidentId" minOccurs="0"/>
+		</sequence>
+	</complexType>
+	<element name="Incident" type="ext:IncidentType">
+		<annotation>
+			<documentation>Incident or event</documentation>
+		</annotation>
+	</element>
+	<element name="CurrentStatus" type="nc:StatusType">
+		<annotation>
+			<documentation>Current incident status</documentation>
+		</annotation>
+	</element>
+	<element name="GPSLongitudeDecimal" type="nc:TextType">
+		<annotation>
+			<documentation>Incident location GPS longitude decimal value</documentation>
+		</annotation>
+	</element>
+	<element name="GPSLatitudeDecimal" type="nc:TextType">
+		<annotation>
+			<documentation>Incident location GPS latitude decimal value </documentation>
+		</annotation>
+	</element>
+</schema>

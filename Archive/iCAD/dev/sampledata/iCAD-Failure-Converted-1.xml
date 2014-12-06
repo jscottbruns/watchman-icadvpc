@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<WatchmanAlerting xmlns:fhwm="http://fhwm.net/xsd/1.2/ICadDispatch" xmlns:ns1="http://niem.gov/niem/structures/2.0" xmlns:ns2="http://niem.gov/niem/domains/emergencyManagement/2.0" xmlns:ns3="http://niem.gov/niem/niem-core/2.0" xmlns:ns4="http://fhwm.net/xsd/ICadDispatch" xmlns:ns6="http://niem.gov/niem/domains/jxdm/4.0" xmlns:ns7="http://niem.gov/niem/ansi-nist/2.0">
+  <IncidentNo>201112-29535</IncidentNo>
+  <EventNo>201112-29535</EventNo>
+  <Priority>1</Priority>
+  <RadioTac>S1</RadioTac>
+  <DispatchDate/>
+  <IncidentStatus>
+    <CurrentStatus>DISPATCHED</CurrentStatus>
+    <Entry>2011-12-01T22:15:20</Entry>
+    <Open>2011-12-01T22:15:20</Open>
+    <Dispatch>2011-12-01T22:16:29</Dispatch>
+  </IncidentStatus>
+  <CallType>
+    <Nature>69D06-Delta STRUCTURE FIRE</Nature>
+    <TypeCode>SF</TypeCode>
+  </CallType>
+  <IncidentLocation>
+    <BoxArea>0601</BoxArea>
+    <Station>06</Station>
+    <Location>
+      <StreetName>1756 RUBY ST-SC</StreetName>
+      <StreetName/>
+    </Location>
+    <CrossStreet>
+      <StreetName>LORAIN BORO LINE</StreetName>
+      <StreetName>OAKLAND AVE-LO</StreetName>
+    </CrossStreet>
+    <GPSCoords>
+      <GPSLatitude>
+        <Degree>0</Degree>
+        <Minute>0</Minute>
+        <Second>0</Second>
+      </GPSLatitude>
+      <GPSLongitude>
+        <Degree>0</Degree>
+        <Minute>0</Minute>
+        <Second>0</Second>
+      </GPSLongitude>
+    </GPSCoords>
+  </IncidentLocation>
+  <UnitDispatch>
+    <UnitList>STA6 E31 T31 TN31 STA9 A91</UnitList>
+    <Assigned>E31</Assigned>
+    <Assigned>T31</Assigned>
+    <Assigned>TN31</Assigned>
+  </UnitDispatch>
+  <IncidentComments>
+    <Comment>
+      <EntryTime>2011-12-01T22:16:29</EntryTime>
+      <EntryFDID/>
+      <EntryOperator/>
+      <EntryID/>
+      <Text>Fire service incident 201112-29535 (KLH)</Text>
+    </Comment>
+    <Comment>
+      <EntryTime>2011-12-01T22:16:30</EntryTime>
+      <EntryFDID/>
+      <EntryOperator/>
+      <EntryID/>
+      <Text>TAC CHANNEL S1 ASSIGNED (KLH)</Text>
+    </Comment>
+    <Comment>
+      <EntryTime>2011-12-01T22:16:32</EntryTime>
+      <EntryFDID/>
+      <EntryOperator/>
+      <EntryID/>
+      <Text>* Updates from ProQa *[CAH]</Text>
+    </Comment>
+    <Comment>
+      <EntryTime>2011-12-01T22:16:32</EntryTime>
+      <EntryFDID/>
+      <EntryOperator/>
+      <EntryID/>
+      <Text>ProQAF 6.It is not known if anyone is trapped</Text>
+    </Comment>
+    <Comment>
+      <EntryTime>2011-12-01T22:16:32</EntryTime>
+      <EntryFDID/>
+      <EntryOperator/>
+      <EntryID/>
+      <Text>ProQAF inside the structure.  7.It is not known</Text>
+    </Comment>
+    <Comment>
+      <EntryTime>2011-12-01T22:16:32</EntryTime>
+      <EntryFDID/>
+      <EntryOperator/>
+      <EntryID/>
+      <Text>ProQAF if anyone is injured.</Text>
+    </Comment>
+    <Comment>
+      <EntryTime>2011-12-01T22:16:32</EntryTime>
+      <EntryFDID/>
+      <EntryOperator/>
+      <EntryID/>
+      <Text>ProQAF Post Dispatch Instructions</Text>
+    </Comment>
+    <Comment>
+      <EntryTime>2011-12-01T22:16:32</EntryTime>
+      <EntryFDID/>
+      <EntryOperator/>
+      <EntryID/>
+      <Text>ProQAF Pre-Arrival Instructions</Text>
+    </Comment>
+    <Comment>
+      <EntryTime>2011-12-01T22:16:32</EntryTime>
+      <EntryFDID/>
+      <EntryOperator/>
+      <EntryID/>
+      <Text>* End of updates from ProQa *[CAH]</Text>
+    </Comment>
+  </IncidentComments>
+  <Metadata>
+    <DispatchService>ICAD-DISPATCH</DispatchService>
+    <Jurisdiction>Cambria County PA</Jurisdiction>
+    <TransID>1</TransID>
+    <TransTimestamp>2011-12-01T22:17:36</TransTimestamp>
+  </Metadata>
+</WatchmanAlerting>

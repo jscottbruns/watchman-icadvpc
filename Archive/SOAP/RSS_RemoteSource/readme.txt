@@ -1,0 +1,1 @@
+This directory contains source and images to be inserted in remote websites to facilitate RSS displays

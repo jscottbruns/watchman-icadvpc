@@ -1,0 +1,18 @@
+MIDNIGHT ON DATE: DATEADD(dd, 0, DATEDIFF(dd, 0, GETDATE()))
+MIDNIGHT ON NEXT DATE: DATEADD(dd, 0, DATEDIFF(dd, 0, GETDATE())) + 1
+IncDate >= DATEADD(dd, 0, DATEDIFF(dd, 0, GETDATE())) AND IncDate < DATEADD(dd, 0, DATEDIFF(dd, 0, GETDATE())) + 1
+
+Event No: 201109-084183
+Incident No: 20110021348
+ProQANumber: 0011015460
+
+Extract Time from Jan 1 1970 11:20AM => 11:09:52
+CONVERT(char(8), NoteTime, 108)
+
+CONVERT(varchar, DateCol, 120) (24-hour) 2009-12-12 13:45:12
+CONVERT(VACHAR, DateCol, 126) (ISO-8601 Format: 2009-04-30T00:00:00
+
+SELECT t1.IncidentNo, CONVERT(VARCHAR(10), t1.IncDate, 23) AS Date, CONVERT(VARCHAR, CONVERT(DATETIME, CONVERT(VARCHAR(10), t1.IncDate, 111) + ' ' + CONVERT(CHAR(8), t2.NoteTime, 108) ), 126) AS DateTime
+FROM tblActiveFireCalls t1
+LEFT JOIN tblActiveCallNotes t2 ON t2.Incident = t1.IncidentNo
+GROUP BY t1.IncidentNo;

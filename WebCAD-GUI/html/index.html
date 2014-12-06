@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+
+<!--[if IEMobile 7]><html class="no-js iem7 oldie"><![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js ie7 oldie" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js ie8 oldie" lang="en"><![endif]-->
+<!--[if (IE 9)&!(IEMobile)]><html class="no-js ie9" lang="en"><![endif]-->
+<!--[if (gt IE 9)|(gt IEMobile 7)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>Firehouse Automation, LLC :: WebCAD Platform</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- http://davidbcalhoun.com/2010/viewport-metatag -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+
+	<!-- http://www.kylejlarson.com/blog/2012/iphone-5-web-design/ -->
+	<meta name="viewport" content="user-scalable=0, initial-scale=1.0">
+
+	<!-- For all browsers -->
+	<link rel="stylesheet" href="css/reset.css?v=1">
+	<link rel="stylesheet" href="css/style.css?v=1">
+	<link rel="stylesheet" href="css/colors.css?v=1">
+	<link rel="stylesheet" media="print" href="css/print.css?v=1">
+	<!-- For progressively larger displays -->
+	<link rel="stylesheet" media="only all and (min-width: 480px)" href="css/480.css?v=1">
+	<link rel="stylesheet" media="only all and (min-width: 768px)" href="css/768.css?v=1">
+	<link rel="stylesheet" media="only all and (min-width: 992px)" href="css/992.css?v=1">
+	<link rel="stylesheet" media="only all and (min-width: 1200px)" href="css/1200.css?v=1">
+	<!-- For Retina displays -->
+	<link rel="stylesheet" media="only all and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5)" href="css/2x.css?v=1">
+
+	<!-- Webfonts -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+
+	<!-- Additional styles -->
+	<link rel="stylesheet" href="css/styles/agenda.css?v=1">
+	<link rel="stylesheet" href="css/styles/dashboard.css?v=1">
+	<link rel="stylesheet" href="css/styles/form.css?v=1">
+	<link rel="stylesheet" href="css/styles/modal.css?v=1">
+	<link rel="stylesheet" href="css/styles/progress-slider.css?v=1">
+	<link rel="stylesheet" href="css/styles/switches.css?v=1">
+	<link rel="stylesheet" href="css/styles/table.css?v=1">
+
+	<!-- DataTables -->
+	<link rel="stylesheet" href="js/libs/DataTables/jquery.dataTables.css?v=1">
+	
+	<!-- JavaScript at bottom except for Modernizr -->
+	<script src="js/libs/modernizr.custom.js"></script>
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+  google.maps.event.addDomListener(window, 'load', function() {
+    var map = new google.maps.Map(document.getElementById('demo-chart'), {
+    zoom: 11,
+      center: new google.maps.LatLng(40.431404882045044, -79.9805005),
+      mapTypeId: google.maps.MapTypeId.ROADMAP	
+    });
+    new google.maps.InfoWindow({
+        content: '<small class="tag red-bg">PEND</small>&nbsp;&nbsp;<span style="font-size:14px;font-weight:bold;color:#000">[1-16] 123 Adon Street</span><div style="font-size:11px;color:#404040;margin-top:8px; ">E-0 FIRST RESPONDER DETAIL</div>',
+        position: new google.maps.LatLng(40.45269681354039, -80.0620399),
+      }).open(map, marker1);    
+
+    var marker1 = new google.maps.Marker({
+      map: map,
+      position: new google.maps.LatLng(40.45269681354039, -80.0620399),
+      title: '1224 Adon Street',
+    });
+   
+
+    var marker2 = new google.maps.Marker({
+      map: map,
+      position: new google.maps.LatLng(40.38489026350797, -79.99346130000004)
+    });
+
+
+    var marker3 = new google.maps.Marker({
+      map: map,
+      position: new google.maps.LatLng(40.45820681354304, -79.97740169999997)
+    });
+
+    var marker4 = new google.maps.Marker({
+      map: map,
+      position: new google.maps.LatLng(40.4545680135413, -79.89605000000006)
+    });
+    var marker5 = new google.maps.Marker({
+      map: map,
+      position: new google.maps.LatLng(40.48422436355548, -80.01494415000002)
+    });
+    var marker6 = new google.maps.Marker({
+      map: map,
+      position: new google.maps.LatLng(40.42059901352505, -79.93661699999996)
+    });
+    var marker7 = new google.maps.Marker({
+      map: map,
+      position: new google.maps.LatLng(40.44404461353626, -79.9868788)
+    });
+
+    var marker8 = new google.maps.Marker({
+      map: map,
+      position: new google.maps.LatLng(40.44963957282777, -80.002589482016)
+    });
+
+    var marker9 = new google.maps.Marker({
+      map: map,
+      position: new google.maps.LatLng(40.4023050135163, -80.04917799999998)
+    });
+
+    var marker10 = new google.maps.Marker({
+      map: map,
+      position: new google.maps.LatLng(40.45130601353975, -79.86858000000001)
+    });
+
+
+    google.maps.event.addListener(marker1, 'click', onMarkerClick);
+    google.maps.event.addListener(marker2, 'click', onMarkerClick);
+    google.maps.event.addListener(marker3, 'click', onMarkerClick);
+    google.maps.event.addListener(marker4, 'click', onMarkerClick);
+    google.maps.event.addListener(marker5, 'click', onMarkerClick);
+    google.maps.event.addListener(marker6, 'click', onMarkerClick);
+    google.maps.event.addListener(marker7, 'click', onMarkerClick);
+    google.maps.event.addListener(marker8, 'click', onMarkerClick);
+    google.maps.event.addListener(marker9, 'click', onMarkerClick);
+    google.maps.event.addListener(marker10, 'click', onMarkerClick);
+  });
+</script>
+
+	<!-- For Modern Browsers -->
+	<link rel="shortcut icon" href="img/favicons/favicon.png">
+	<!-- For everything else -->
+	<link rel="shortcut icon" href="img/favicons/favicon.ico">
+
+	<!-- iOS web-app metas -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+	<!-- iPhone ICON -->
+	<link rel="apple-touch-icon" href="img/favicons/apple-touch-icon.png" sizes="57x57">
+	<!-- iPad ICON -->
+	<link rel="apple-touch-icon" href="img/favicons/apple-touch-icon-ipad.png" sizes="72x72">
+	<!-- iPhone (Retina) ICON -->
+	<link rel="apple-touch-icon" href="img/favicons/apple-touch-icon-retina.png" sizes="114x114">
+	<!-- iPad (Retina) ICON -->
+	<link rel="apple-touch-icon" href="img/favicons/apple-touch-icon-ipad-retina.png" sizes="144x144">
+
+	<!-- iPhone SPLASHSCREEN (320x460) -->
+	<link rel="apple-touch-startup-image" href="img/splash/iphone.png" media="(device-width: 320px)">
+	<!-- iPhone (Retina) SPLASHSCREEN (640x960) -->
+	<link rel="apple-touch-startup-image" href="img/splash/iphone-retina.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)">
+	<!-- iPhone 5 SPLASHSCREEN (640×1096) -->
+	<link rel="apple-touch-startup-image" href="img/splash/iphone5.png" media="(device-height: 568px) and (-webkit-device-pixel-ratio: 2)">
+	<!-- iPad (portrait) SPLASHSCREEN (748x1024) -->
+	<link rel="apple-touch-startup-image" href="img/splash/ipad-portrait.png" media="(device-width: 768px) and (orientation: portrait)">
+	<!-- iPad (landscape) SPLASHSCREEN (768x1004) -->
+	<link rel="apple-touch-startup-image" href="img/splash/ipad-landscape.png" media="(device-width: 768px) and (orientation: landscape)">
+	<!-- iPad (Retina, portrait) SPLASHSCREEN (2048x1496) -->
+	<link rel="apple-touch-startup-image" href="img/ipad-portrait-retina.png" media="(device-width: 1536px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2)">
+	<!-- iPad (Retina, landscape) SPLASHSCREEN (1536x2008) -->
+	<link rel="apple-touch-startup-image" href="img/ipad-landscape-retina.png" media="(device-width: 1536px)  and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2)">
+
+	<!-- Microsoft clear type rendering -->
+	<meta http-equiv="cleartype" content="on">
+
+	<!-- IE9 Pinned Sites: http://msdn.microsoft.com/en-us/library/gg131029.aspx -->
+	<meta name="application-name" content="Developr Admin Skin">
+	<meta name="msapplication-tooltip" content="Cross-platform admin template.">
+	<meta name="msapplication-starturl" content="http://www.display-inline.fr/demo/developr">
+	<!-- These custom tasks are examples, you need to edit them to show actual pages -->
+	<meta name="msapplication-task" content="name=Agenda;action-uri=http://www.display-inline.fr/demo/developr/agenda.html;icon-uri=http://www.display-inline.fr/demo/developr/img/favicons/favicon.ico">
+	<meta name="msapplication-task" content="name=My profile;action-uri=http://www.display-inline.fr/demo/developr/profile.html;icon-uri=http://www.display-inline.fr/demo/developr/img/favicons/favicon.ico">
+</head>
+
+<body class="clearfix with-menu with-shortcuts">
+
+	<!-- Prompt IE 6 users to install Chrome Frame -->
+	<!--[if lt IE 7]><p class="message red-gradient simpler">Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+	<!-- Title bar -->
+	<header role="banner" id="title-bar">
+		<h2>WebCAD - City of Pittsburgh, PA</h2>
+	</header>
+
+	<!-- Button to open/hide menu -->
+	<a href="#" id="open-menu"><span>Menu</span></a>
+
+	<!-- Button to open/hide shortcuts -->
+	<a href="#" id="open-shortcuts"><span class="icon-thumbs"></span></a>
+
+	<!-- Main content -->
+	<section role="main" id="main">
+
+		<noscript class="message black-gradient simpler">Your browser does not support JavaScript! Some features won't work as expected...</noscript>
+
+		<hgroup id="main-title" class="thin">
+			<h1>Dashboard</h1>
+			<h2>may <strong>23</strong></h2>
+		</hgroup>
+
+		<div class="dashboard">
+
+			<div class="columns">
+
+				<div class="nine-columns twelve-columns-mobile" id="demo-chart" style="height:300px;">
+				
+					<!-- This div will hold the chart generated in the footer -->
+				</div>
+
+				<div class="three-columns twelve-columns-mobile new-row-mobile">
+					<ul class="stats split-on-mobile">
+						<li>
+							<strong>2</strong> Pending<div >&nbsp;</div>
+						</li>
+						<li>
+							<strong>2</strong> Dispatched<div >&nbsp;</div>
+						</li>
+						<li>
+							<strong>3</strong> Enroute<div >&nbsp;</div>
+						</li>
+						<li>
+							<strong>13</strong> Onscene<div >&nbsp;</div>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="with-padding">
+
+			<div class="columns">
+
+				<div class="twelve-columns six-columns-tablet twelve-columns-mobile">
+
+					<h2 class="relative thin">
+						Active Incidents
+						<span class="info-spot">
+							<span class="icon-info-round"></span>
+							<span class="info-bubble">
+								This is an information bubble to help the user.
+							</span>
+						</span>
+						<span class="button-group absolute-right">
+							<a href="javascript:openModal()" title="Add user" class="button icon-plus-round">&nbsp;View</a>
+							<a href="javascript:openLoadingModal()" title="Reload list" class="button icon-redo"></a>
+						</span>
+					</h2>
+
+					<div >			
+			
+						<div class="table-header button-height anthracite-gradient glossy">
+							<div class="float-right">
+								Search&nbsp;<input type="text" name="table_search" id="table_search" value="" class="input mid-margin-left">
+							</div>
+			
+							Show&nbsp;<select name="range" class="select  glossy">
+								<option value="1" selected="selected">10</option>
+								<option value="2">20</option>
+								<option value="3">40</option>
+								<option value="4">100</option>
+							</select> entries
+						</div>			
+			
+						<table class="table responsive-table" id="sorting-advanced">
+			
+							<thead>
+								<tr>
+									<th scope="col" width="5%"></th>
+									<th scope="col" width="13%">Agency</th>
+									<th scope="col" width="5%" class="hide-on-mobile">Box</th>
+									<th scope="col" width="25%" class="hide-on-mobile-portrait">Nature</th>
+									<th scope="col">Location</th>
+								</tr>
+							</thead>
+			
+							<tfoot>
+								<tr>
+									<td colspan="6">
+										20 entries found
+									</td>
+								</tr>
+							</tfoot>
+			
+							<tbody>
+								<tr>
+									<th><small class="tag red-bg">PEND</small></th>
+									<td>Pittsburgh [231]</td>
+									<td>1-16</td>
+									<td>E-0 FIRST RESPONDER DETAIL</td>
+									<td>123 ADON ST, PGH btwn HUXLEY ST and HOOVER ST</td>
+								</tr>
+								<tr>
+									<th><small class="tag red-bg">PEND</small></th>
+									<td>Pittsburgh [231]</td>
+									<td>3-17</td>
+									<td>TRAFFIC - ENTRAPMENT</td>
+									<td>2404 FAIRLAND ST, PGH btwn OVERBROOK BLVD and ANTENOR WAY</td>
+								</tr>
+								<tr>
+									<th><small class="tag orange-bg">DISP</small></th>
+									<td>Pittsburgh [231]</td>
+									<td>3-17</td>
+									<td>FIRE ALARM COM BLDG</td>
+									<td>1 28TH ST, PGH btwn END and RAILROAD ST</td>
+								</tr>
+								<tr>
+									<th><small class="tag green-bg">ENRT</small></th>
+									<td>Pittsburgh [231]</td>
+									<td>3-17</td>
+									<td>RQST ASST FIRE - EMERGENCY</td>
+									<td>7227 HAMILTON AVE, PGH btwn ZENITH WAY and ALBION ST</td>
+								</tr>
+								<tr>
+									<th><small class="tag orange-bg">DISP</small></th>
+									<td>Pittsburgh [231]</td>
+									<td>3-17</td>
+									<td>ILLEGAL FIRE</td>
+									<td>6 RIVERVIEW DR, PGH btwn RIVERVIEW AVE and WOODS RUN RD</td>
+								</tr>
+								<tr>
+									<th><small class="tag green-bg">ENRT</small></th>
+									<td>Pittsburgh [231]</td>
+									<td>3-17</td>
+									<td>TRAFFIC-HIGH MECHANISM (BIKE/MOTORCYCLE)</td>
+									<td>4320 TESLA ST, PGH btwn TESLA WAY and MONTCLAIR ST</td>
+								</tr>
+								<tr>
+									<th><small class="tag green-bg">ENRT</small></th>
+									<td>Pittsburgh [231]</td>
+									<td>3-17</td>
+									<td>WATER CONDITION INSIDE</td>
+									<td>15 MERCER ST #811, PGH btwn GILMORE ST and WEBSTER AVE</td>
+								</tr>
+								<tr>
+									<th><small class="tag ">ONSC</small></th>
+									<td>Pittsburgh [231]</td>
+									<td>3-17</td>
+									<td>E-0 FIRST RESPONDER DETAIL</td>
+									<td>LACOCK ST/SANDUSKY ST, PGH</td>
+								</tr>
+								<tr>
+									<th><small class="tag ">ONSC</small></th>
+									<td>Pittsburgh [231]</td>
+									<td>3-17</td>
+									<td>FIRE ALARM COM BLDG</td>
+									<td>2440 RED OAK DR, PGH btwn HAYSON AVE and END</td>
+								</tr>
+								<tr>
+									<th><small class="tag ">ONSC</small></th>
+									<td>Pittsburgh [231]</td>
+									<td>3-17</td>
+									<td>UNKNOWN - MEDICAL ALARM </td>
+									<td>2003 ROBINSON BLVD, PGH btwn SUNRISE AVE and WILNER DR</td>
+								</tr>
+							</tbody>
+			
+						</table>		
+						
+						<form method="post" action="" class="table-footer button-height large-margin-bottom anthracite-gradient glossy">
+							<div class="float-right">
+								<div class="button-group">
+									<a href="#" title="First page" class="button "><span class="icon-previous"></span></a>
+									<a href="#" title="Previous page" class="button "><span class="icon-backward"></span></a>
+								</div>
+			 
+								<div class="button-group">
+									<a href="#" title="Page 1" class="button active">1</a>
+									<a href="#" title="Page 2" class="button ">2</a>
+								</div>
+			
+								<div class="button-group">
+									<a href="#" title="Next page" class="button "><span class="icon-forward"></span></a>
+									<a href="#" title="Last page" class="button "><span class="icon-next"></span></a>
+								</div>
+							</div>
+			
+							Filter by Status:
+							<select name="select90" class="select  mid-margin-left">
+								<option value="-1">All Active</option>
+								<option value="0">Pending</option>
+								<option value="1">Dispatched</option>
+								<option value="2">Enroute</option>
+								<option value="3">Onscene</option>
+								<option value="4">Closed</option>
+							</select>
+							<button type="submit" class="button ">Go</button>
+						</form>						
+									
+					</div>
+
+				</div>
+
+				
+
+			</div>
+
+		</div>
+
+	</section>
+	<!-- End main content -->
+
+	<!-- Side tabs shortcuts -->
+	<ul id="shortcuts" role="complementary" class="children-tooltip tooltip-right">
+		<li class="current"><a href="./" class="shortcut-dashboard" title="Dashboard">Dashboard</a></li>
+		<li><a href="inbox.html" class="shortcut-messages" title="Messages">Messages</a></li>
+		<li><a href="agenda.html" class="shortcut-agenda" title="Agenda">Agenda</a></li>
+		<li><a href="tables.html" class="shortcut-contacts" title="Contacts">Contacts</a></li>
+		<li><a href="explorer.html" class="shortcut-medias" title="Medias">Medias</a></li>
+		<li><a href="sliders.html" class="shortcut-stats" title="Stats">Stats</a></li>
+		<li class="at-bottom"><a href="form.html" class="shortcut-settings" title="Settings">Settings</a></li>
+		<li><span class="shortcut-notes" title="Notes">Notes</span></li>
+	</ul>
+
+	<!-- Side tabs shortcuts with legends under the icons -->
+	<!-- <ul id="shortcuts" role="complementary" class="children-tooltip tooltip-right with-legend">
+		<li class="current"><a href="./" class="shortcut-dashboard" title="Dashboard"><span class="shortcut-legend">Dashboard</span></a></li>
+		<li><a href="inbox.html" class="shortcut-messages" title="Messages"><span class="shortcut-legend">Messages</span></a></li>
+		<li><a href="agenda.html" class="shortcut-agenda" title="Agenda"><span class="shortcut-legend">Agenda</span></a></li>
+		<li><a href="tables.html" class="shortcut-contacts" title="Contacts"><span class="shortcut-legend">Contacts</span></a></li>
+		<li><a href="explorer.html" class="shortcut-medias" title="Medias"><span class="shortcut-legend">Medias</span></a></li>
+		<li><a href="sliders.html" class="shortcut-stats" title="Stats"><span class="shortcut-legend">Stats</span></a></li>
+		<li class="at-bottom"><a href="form.html" class="shortcut-settings" title="Settings"><span class="shortcut-legend">Settings</span></a></li>
+		<li><span class="shortcut-notes" title="Notes"><span class="shortcut-legend">Notes</span></span></li>
+	</ul> -->
+
+	<!-- Sidebar/drop-down menu -->
+	<section id="menu" role="complementary">
+
+		<!-- This wrapper is used by several responsive layouts -->
+		<div id="menu-content">
+
+			<header>
+				Administrator
+			</header>
+
+			<div id="profile">
+				<img src="img/user.png" width="64" height="64" alt="User name" class="user-icon">
+				<span class="name"><b>John Smith</b></span>
+			</div>
+
+			<!-- By default, this section is made for 4 icons, see the doc to learn how to change this, in "basic markup explained" -->
+			<ul id="access" class="children-tooltip">
+				<li><a href="inbox.html" title="Messages"><span class="icon-inbox"></span><span class="count">2</span></a></li>
+				<li><a href="calendars.html" title="Calendar"><span class="icon-calendar"></span></a></li>
+				<li><a href="login.html" title="Profile"><span class="icon-user"></span></a></li>
+				<li class="disabled"><span class="icon-gear"></span></li>
+			</ul>
+
+			<section class="navigable">
+				<ul class="big-menu">
+					<li class="with-right-arrow">
+						<span><span class="list-count">11</span>Recent Incidents</span>
+						<ul class="big-menu">
+							<li><a href="typography.html">Typography</a></li>
+							<li><a href="columns.html">Columns</a></li>
+							<li><a href="tables.html">Tables</a></li>
+							<li><a href="colors.html">Colors &amp; backgrounds</a></li>
+							<li><a href="icons.html">Icons</a></li>
+							<li><a href="files.html">Files &amp; Gallery</a></li>
+							<li class="with-right-arrow">
+								<span><span class="list-count">4</span>Forms &amp; buttons</span>
+								<ul class="big-menu">
+									<li><a href="buttons.html">Buttons</a></li>
+									<li><a href="form.html">Form elements</a></li>
+									<li><a href="textareas.html">Textareas &amp; WYSIWYG</a></li>
+									<li><a href="form-layouts.html">Form layouts</a></li>
+									<li><a href="wizard.html">Wizard</a></li>
+								</ul>
+							</li>
+							<li class="with-right-arrow">
+								<span><span class="list-count">2</span>Agenda &amp; Calendars</span>
+								<ul class="big-menu">
+									<li><a href="agenda.html">Agenda</a></li>
+									<li><a href="calendars.html">Calendars</a></li>
+								</ul>
+							</li>
+							<li><a href="blocks.html">Blocks &amp; infos</a></li>
+						</ul>
+					</li>
+					<li class="with-right-arrow">
+						<span>Incident Notifications</span>
+						<ul class="big-menu">
+							<li><a href="auto-setup.html">Automatic setup</a></li>
+							<li><a href="responsive.html">Responsiveness</a></li>
+							<li><a href="tabs.html">Tabs</a></li>
+							<li><a href="sliders.html">Slider &amp; progress</a></li>
+							<li><a href="modals.html">Modal windows</a></li>
+							<li class="with-right-arrow">
+								<span><span class="list-count">3</span>Messages &amp; notifications</span>
+								<ul class="big-menu">
+									<li><a href="messages.html">Messages</a></li>
+									<li><a href="notifications.html">Notifications</a></li>
+									<li><a href="tooltips.html">Tooltips</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li class="with-right-arrow">
+						<a href="ajax-demo/submenu.html" class="navigable-ajax" title="Menu title">Vehicle GPS</a>
+					</li>
+					<li class="with-right-arrow">
+						<a href="ajax-demo/submenu.html" class="navigable-ajax" title="Menu title">Dispatch Audio Stream</a>
+					</li>
+					<li class="with-right-arrow">
+						<a href="ajax-demo/submenu.html" class="navigable-ajax" title="Menu title">Staffing & Response</a>
+					</li>										
+				</ul>
+			</section>
+
+			<ul class="unstyled-list">
+				<li class="title-menu">Announcements</li>
+				<li>
+					<ul class="calendar-menu">
+						<li>
+							<a href="#" title="See event">
+								<time datetime="2011-02-24"><b>24</b> Feb</time>
+								<small class="green">10:30:24</small>
+								HYDRANT OUT OF SERVICE - 1430 BLVD OF THE ALLIES
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li class="title-menu">Messaging</li>
+				<li>
+					<ul class="message-menu">
+
+						<li>
+							<a href="#" title="Read message">
+								<span class="message-status">
+									<span class="unstarred">Not starred</span>
+									<span class="new-message">New</span>
+								</span>
+								<span class="message-info">
+									<span class="blue">15:47</span>
+								</span>
+								<strong class="blue">Station 24</strong><br>
+								<strong>B/C #4 requesting status of Engine 23</strong>
+							</a>
+						</li>
+						<li>
+							<span class="message-status">
+								<span class="unstarred">Not starred</span>
+							</span>
+							<span class="message-info">
+								<span class="blue">15:12</span>
+							</span>
+							<strong class="blue">Station 4</strong><br>
+							Truck 4 will be OOS temporarily for fuel
+						</li>
+					</ul>
+				</li>
+			</ul>
+
+		</div>
+		<!-- End content wrapper -->
+
+		<!-- This is optional -->
+		<footer id="menu-footer">
+			<p class="button-height">
+				<input type="checkbox" name="auto-refresh" id="auto-refresh" checked="checked" class="switch float-right">
+				<label for="auto-refresh">Auto-refresh</label>
+			</p>
+		</footer>
+
+	</section>
+	<!-- End sidebar/drop-down menu -->
+
+	<!-- JavaScript at the bottom for fast page loading -->
+
+	<!-- Scripts -->
+	<script src="js/libs/jquery-1.9.1.min.js"></script>
+	<script src="js/setup.js"></script>
+
+	<!-- Template functions -->
+	<script src="js/developr.input.js"></script>
+	<script src="js/developr.message.js"></script>
+	<script src="js/developr.modal.js"></script>
+	<script src="js/developr.navigable.js"></script>
+	<script src="js/developr.notify.js"></script>
+	<script src="js/developr.scroll.js"></script>
+	<script src="js/developr.progress-slider.js"></script>
+	<script src="js/developr.tooltip.js"></script>
+	<script src="js/developr.confirm.js"></script>
+	<script src="js/developr.agenda.js"></script>
+	<script src="js/developr.tabs.js"></script>		<!-- Must be loaded last -->
+
+	<!-- Tinycon -->
+	<script src="js/libs/tinycon.min.js"></script>
+
+	<script>
+
+		// Call template init (optional, but faster if called manually)
+		$.template.init();
+
+		// Favicon count
+		Tinycon.setBubble(2);
+
+		// If the browser support the Notification API, ask user for permission (with a little delay)
+		if (notify.hasNotificationAPI() && !notify.isNotificationPermissionSet())
+		{
+			setTimeout(function()
+			{
+				notify.showNotificationPermission('Your browser supports desktop notification, click here to enable them.', function()
+				{
+					// Confirmation message
+					if (notify.hasNotificationPermission())
+					{
+						notify('Notifications API enabled!', 'You can now see notifications even when the application is in background', {
+							icon: 'img/demo/icon.png',
+							system: true
+						});
+					}
+					else
+					{
+						notify('Notifications API disabled!', 'Desktop notifications will not be used.', {
+							icon: 'img/demo/icon.png'
+						});
+					}
+				});
+
+			}, 2000);
+		}
+
+		/*
+		 * Handling of 'other actions' menu
+		 */
+
+		var otherActions = $('#otherActions'),
+			current = false;
+
+		// Other actions
+		$('.list .button-group a:nth-child(2)').menuTooltip('Loading...', {
+
+			classes: ['with-mid-padding'],
+			ajax: 'ajax-demo/tooltip-content.html',
+
+			onShow: function(target)
+			{
+				// Remove auto-hide class
+				target.parent().removeClass('show-on-parent-hover');
+			},
+
+			onRemove: function(target)
+			{
+				// Restore auto-hide class
+				target.parent().addClass('show-on-parent-hover');
+			}
+		});
+
+		// Delete button
+		$('.list .button-group a:last-child').data('confirm-options', {
+
+			onShow: function()
+			{
+				// Remove auto-hide class
+				$(this).parent().removeClass('show-on-parent-hover');
+			},
+
+			onConfirm: function()
+			{
+				// Remove element
+				$(this).closest('li').fadeAndRemove();
+
+				// Prevent default link behavior
+				return false;
+			},
+
+			onRemove: function()
+			{
+				// Restore auto-hide class
+				$(this).parent().addClass('show-on-parent-hover');
+			}
+
+		});
+
+		// Demo modal
+		function openModal()
+		{
+			$.modal({
+				content: '<p>This is an example of modal window. You can open several at the same time (click links below!), move them and resize them.</p>'+
+						  '<p>The plugin provides several other functions to control them, try below:</p>'+
+						  '<ul class="simple-list with-icon">'+
+						  '    <li><a href="javascript:void(0)" onclick="openModal()">Open new blocking modal</a></li>'+
+						  '    <li><a href="javascript:void(0)" onclick="$.modal.alert(\'This is a non-blocking modal, you can switch between me and the other modal\', { blocker: false })">Open non-blocking modal</a></li>'+
+						  '    <li><a href="javascript:void(0)" onclick="$(this).getModalWindow().setModalTitle(\'\')">Remove title</a></li>'+
+						  '    <li><a href="javascript:void(0)" onclick="$(this).getModalWindow().setModalTitle(\'New title\')">Change title</a></li>'+
+						  '    <li><a href="javascript:void(0)" onclick="$(this).getModalWindow().loadModalContent(\'ajax-demo/auto-setup.html\')">Load Ajax content</a></li>'+
+						  '</ul>',
+				title: 'Example modal window',
+				width: 300,
+				scrolling: false,
+				actions: {
+					'Close' : {
+						color: 'red',
+						click: function(win) { win.closeModal(); }
+					},
+					'Center' : {
+						color: 'green',
+						click: function(win) { win.centerModal(true); }
+					},
+					'Refresh' : {
+						color: 'blue',
+						click: function(win) { win.closeModal(); }
+					},
+					'Abort' : {
+						color: 'orange',
+						click: function(win) { win.closeModal(); }
+					}
+				},
+				buttons: {
+					'Close': {
+						classes:	'huge blue-gradient glossy full-width',
+						click:		function(win) { win.closeModal(); }
+					}
+				},
+				buttonsLowPadding: true
+			});
+		};
+
+		// Demo alert
+		function openAlert()
+		{
+			$.modal.alert('This is an alert message', {
+				buttons: {
+					'Thanks, captain obvious': {
+						classes:	'huge blue-gradient glossy full-width',
+						click:		function(win) { win.closeModal(); }
+					}
+				}
+			});
+		};
+
+		// Demo prompt
+		function openPrompt()
+		{
+			var cancelled = false;
+
+			$.modal.prompt('Please enter a value between 5 and 10:', function(value)
+			{
+				value = parseInt(value);
+				if (isNaN(value) || value < 5 || value > 10)
+				{
+					$(this).getModalContentBlock().message('Please enter a correct value', { append: false, classes: ['red-gradient'] });
+					return false;
+				}
+
+				$.modal.alert('Value: <strong>'+value+'</strong>');
+
+			}, function()
+			{
+				if (!cancelled)
+				{
+					$.modal.alert('Oh, come on....');
+					cancelled = true;
+					return false;
+				}
+			});
+		};
+
+		// Demo confirm
+		function openConfirm()
+		{
+			$.modal.confirm('Challenge accepted?', function()
+			{
+				$.modal.alert('Me gusta!');
+
+			}, function()
+			{
+				$.modal.alert('Meh.');
+			});
+		};
+
+		/*
+		 * Agenda scrolling
+		 * This example shows how to remotely control an agenda. most of the time, the built-in controls
+		 * using headers work just fine
+		 */
+
+			// Days
+		var daysName = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+
+			// Name display
+			agendaDay = $('#agenda-day'),
+
+			// Agenda scrolling
+			agenda = $('#agenda').scrollAgenda({
+				first: 2,
+				onRangeChange: function(start, end)
+				{
+					if (start != end)
+					{
+						agendaDay.text(daysName[start].substr(0, 3)+' - '+daysName[end].substr(0, 3));
+					}
+					else
+					{
+						agendaDay.text(daysName[start]);
+					}
+				}
+			});
+
+		// Remote controls
+		$('#agenda-previous').click(function(event)
+		{
+			event.preventDefault();
+			agenda.scrollAgendaToPrevious();
+		});
+		$('#agenda-today').click(function(event)
+		{
+			event.preventDefault();
+			agenda.scrollAgendaFirstColumn(2);
+		});
+		$('#agenda-next').click(function(event)
+		{
+			event.preventDefault();
+			agenda.scrollAgendaToNext();
+		});
+
+		// Demo loading modal
+		function openLoadingModal()
+		{
+			var timeout;
+
+			$.modal({
+				contentAlign: 'center',
+				width: 240,
+				title: 'Loading',
+				content: '<div style="line-height: 25px; padding: 0 0 10px"><span id="modal-status">Contacting server...</span><br><span id="modal-progress">0%</span></div>',
+				buttons: {},
+				scrolling: false,
+				actions: {
+					'Cancel': {
+						color:	'red',
+						click:	function(win) { win.closeModal(); }
+					}
+				},
+				onOpen: function()
+				{
+						// Progress bar
+					var progress = $('#modal-progress').progress(100, {
+							size: 200,
+							style: 'large',
+							barClasses: ['anthracite-gradient', 'glossy'],
+							stripes: true,
+							darkStripes: false,
+							showValue: false
+						}),
+
+						// Loading state
+						loaded = 0,
+
+						// Window
+						win = $(this),
+
+						// Status text
+						status = $('#modal-status'),
+
+						// Function to simulate loading
+						simulateLoading = function()
+						{
+							++loaded;
+							progress.setProgressValue(loaded+'%', true);
+							if (loaded === 100)
+							{
+								progress.hideProgressStripes().changeProgressBarColor('green-gradient');
+								status.text('Done!');
+								/*win.getModalContentBlock().message('Content loaded!', {
+									classes: ['green-gradient', 'align-center'],
+									arrow: 'bottom'
+								});*/
+								setTimeout(function() { win.closeModal(); }, 1500);
+							}
+							else
+							{
+								if (loaded === 1)
+								{
+									status.text('Loading data...');
+									progress.changeProgressBarColor('blue-gradient');
+								}
+								else if (loaded === 25)
+								{
+									status.text('Loading assets (1/3)...');
+								}
+								else if (loaded === 45)
+								{
+									status.text('Loading assets (2/3)...');
+								}
+								else if (loaded === 85)
+								{
+									status.text('Loading assets (3/3)...');
+								}
+								else if (loaded === 92)
+								{
+									status.text('Initializing...');
+								}
+								timeout = setTimeout(simulateLoading, 50);
+							}
+						};
+
+					// Start
+					timeout = setTimeout(simulateLoading, 2000);
+				},
+				onClose: function()
+				{
+					// Stop simulated loading if needed
+					clearTimeout(timeout);
+				}
+			});
+		};
+
+	</script>
+
+	
+</body>
+</html>

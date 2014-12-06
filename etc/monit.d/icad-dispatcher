@@ -1,0 +1,4 @@
+check process icad-dispatcher.pid
+    with pidfile /var/run/icad-dispatcher.pid
+    start = "/etc/init.d/icad-dispatcher start"
+    stop  = "/etc/init.d/icad-dispatcher stop"

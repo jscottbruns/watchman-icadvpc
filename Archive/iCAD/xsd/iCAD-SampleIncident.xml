@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fhwm:ICadDispatch
+	xmlns:fhwm="http://fhwm.net/xsd/1.2/ICadDispatch"
+	xmlns:ns1="http://niem.gov/niem/structures/2.0"
+	xmlns:ns2="http://niem.gov/niem/domains/emergencyManagement/2.0"
+	xmlns:ns3="http://niem.gov/niem/niem-core/2.0"
+	xmlns:ns4="http://fhwm.net/xsd/ICadDispatch"
+	xmlns:ns6="http://niem.gov/niem/domains/jxdm/4.0"
+	xmlns:ns7="http://niem.gov/niem/ansi-nist/2.0">
+  <ns4:Payload>
+    <ns4:ServiceCall>
+      <ns3:ActivityIdentification>
+        <ns3:IdentificationID>P101060036</ns3:IdentificationID>
+      </ns3:ActivityIdentification>
+      <ns3:ActivityDescriptionText>(TEST) HOUSE FIRE</ns3:ActivityDescriptionText>
+	<ns3:ActivityStatus>
+	  <ns3:StatusText>ENTRY</ns3:StatusText>
+	  <ns3:StatusDate><ns3:DateTime>2010-11-18T21:28:10</ns3:DateTime></ns3:StatusDate>
+	</ns3:ActivityStatus>
+	<ns3:ActivityStatus>
+	  <ns3:StatusText>OPEN</ns3:StatusText>
+	  <ns3:StatusDate><ns3:DateTime>2010-11-18T21:30:10</ns3:DateTime></ns3:StatusDate>
+	</ns3:ActivityStatus>
+	<ns3:ActivityStatus>
+	  <ns3:StatusText>DISPATCH</ns3:StatusText>
+	  <ns3:StatusDate><ns3:DateTime>2010-11-18T21:31:10</ns3:DateTime></ns3:StatusDate>
+	</ns3:ActivityStatus>
+      <ns3:ActivityReasonText>E830 TK828 E828 TK809 E809 E833 QT822 BO801</ns3:ActivityReasonText>
+      <ns6:ServiceCallDispatchedDate>
+        <ns3:DateTime>2010-11-18T21:31:10</ns3:DateTime>
+      </ns6:ServiceCallDispatchedDate>
+      <ns4:ServiceCallAugmentation>
+	<ns4:CurrentStatus><ns3:StatusText>DISPATCHED</ns3:StatusText></ns4:CurrentStatus>
+    <ns4:CallTypeText>HOUSEF</ns4:CallTypeText>
+	<ns4:CallPriorityText>1</ns4:CallPriorityText>
+	<ns4:Comment>
+	  <ns3:CommentText>TEXT:ProQA recommends dispatch at this time \NAME:ALAN PH:202-498-3613 (MTF)</ns3:CommentText>
+	  <ns4:CommentDateTime><ns3:DateTime>2010-04-06T03:59:34</ns3:DateTime></ns4:CommentDateTime>
+	  <ns6:ServiceCallOperator>
+	  	<ns3:PersonName>
+	  		<ns3:PersonNamePrefixText>FD02</ns3:PersonNamePrefixText>
+	  		<ns3:PersonFullName>JOHN SMITH</ns3:PersonFullName>
+	  	</ns3:PersonName>
+	  </ns6:ServiceCallOperator>
+	  <ns3:SourceIDText>ENTRY</ns3:SourceIDText>
+	</ns4:Comment>
+	<ns4:Comment>
+	  <ns3:CommentText></ns3:CommentText>
+	  <ns4:CommentDateTime><ns3:DateTime>2010-04-06T03:59:34</ns3:DateTime></ns4:CommentDateTime>
+	  <ns6:ServiceCallOperator>
+	  	<ns3:PersonName>
+	  		<ns3:PersonNamePrefixText>FD02</ns3:PersonNamePrefixText>
+	  		<ns3:PersonFullName>JOHN SMITH</ns3:PersonFullName>
+	  	</ns3:PersonName>
+	  </ns6:ServiceCallOperator>
+	  <ns3:SourceIDText>SIGNAL4</ns3:SourceIDText>
+	</ns4:Comment>
+	<ns4:Comment>
+	  <ns3:CommentText>LOCATION:6011 EMERSON ST \PHONE:202/498-3613 COMP:Sprint Nextel - iDEN \SRC:WPH1 \LAT:+038.948883LON:-076.910563 \CONF:  0% \UNCERT:     0FT PNUM:301/511-4064</ns3:CommentText>
+	  <ns4:CommentDateTime><ns3:DateTime>2010-04-06T03:59:34</ns3:DateTime></ns4:CommentDateTime>
+	  <ns6:ServiceCallOperator>
+	  	<ns3:PersonName>
+	  		<ns3:PersonNamePrefixText>FD02</ns3:PersonNamePrefixText>
+	  		<ns3:PersonFullName>JOHN SMITH</ns3:PersonFullName>
+	  	</ns3:PersonName>
+	  </ns6:ServiceCallOperator>
+	  <ns3:SourceIDText>E911</ns3:SourceIDText>
+	</ns4:Comment>
+	<ns4:Comment>
+	  <ns3:CommentText>#101060036, Structure Fire. .Caller Statement: HOUSE IS ON FIRE.</ns3:CommentText>
+	  <ns4:CommentDateTime><ns3:DateTime>2010-04-06T03:59:34</ns3:DateTime></ns4:CommentDateTime>
+	  <ns6:ServiceCallOperator>
+	  	<ns3:PersonName>
+	  		<ns3:PersonNamePrefixText>FD02</ns3:PersonNamePrefixText>
+	  		<ns3:PersonFullName>JOHN SMITH</ns3:PersonFullName>
+	  	</ns3:PersonName>
+	  </ns6:ServiceCallOperator>
+	  <ns3:SourceIDText>MISC</ns3:SourceIDText>
+	</ns4:Comment>
+	<ns4:Comment>
+	  <ns3:CommentText>#101060036, ProQA Case #0010008820 Classification: HOUSEF Description: Residential (single). 1.The caller is on scene (1st party). 2.Smoke is visible. 3.The incident involves a single-family residential structure. 4.A single-level structure is involved. 5.The caller has not indicated that there are trapped person(s). Dispatch Level: 69D06</ns3:CommentText>
+	  <ns4:CommentDateTime><ns3:DateTime>2010-04-06T03:59:34</ns3:DateTime></ns4:CommentDateTime>
+	  <ns6:ServiceCallOperator>
+	  	<ns3:PersonName>
+	  		<ns3:PersonNamePrefixText>FD02</ns3:PersonNamePrefixText>
+	  		<ns3:PersonFullName>JOHN SMITH</ns3:PersonFullName>
+	  	</ns3:PersonName>
+	  </ns6:ServiceCallOperator>
+	  <ns3:SourceIDText>MISC</ns3:SourceIDText>
+	</ns4:Comment>
+	<ns4:Comment>
+	  <ns3:CommentText>TEXT:ProQA additional key questions (MTF)</ns3:CommentText>
+	  <ns4:CommentDateTime><ns3:DateTime>2010-04-06T03:59:46</ns3:DateTime></ns4:CommentDateTime>
+	  <ns6:ServiceCallOperator>
+	  	<ns3:PersonName>
+	  		<ns3:PersonNamePrefixText>FD02</ns3:PersonNamePrefixText>
+	  		<ns3:PersonFullName>JOHN SMITH</ns3:PersonFullName>
+	  	</ns3:PersonName>
+	  </ns6:ServiceCallOperator>
+	  <ns3:SourceIDText>SUPP</ns3:SourceIDText>
+	</ns4:Comment>
+	<ns4:Comment>
+	  <ns3:CommentText>#101060036, ProQA Case #0010008820 Classification: HOUSEF Description: 6.No one is trapped inside the structure. 7.No one is reported to be injured. Dispatch Level: 69D06</ns3:CommentText>
+	  <ns4:CommentDateTime><ns3:DateTime>2010-04-06T03:59:46</ns3:DateTime></ns4:CommentDateTime>
+	  <ns6:ServiceCallOperator>
+	  	<ns3:PersonName>
+	  		<ns3:PersonNamePrefixText>FD02</ns3:PersonNamePrefixText>
+	  		<ns3:PersonFullName>JOHN SMITH</ns3:PersonFullName>
+	  	</ns3:PersonName>
+	  </ns6:ServiceCallOperator>
+	  <ns3:SourceIDText>MISC</ns3:SourceIDText>
+	</ns4:Comment>
+	<ns4:Comment>
+	  <ns3:CommentText>TEXT:ProQA processing complete</ns3:CommentText>
+	  <ns4:CommentDateTime><ns3:DateTime>2010-04-06T04:00:16</ns3:DateTime></ns4:CommentDateTime>
+	  <ns6:ServiceCallOperator>
+	  	<ns3:PersonName>
+	  		<ns3:PersonNamePrefixText>FD02</ns3:PersonNamePrefixText>
+	  		<ns3:PersonFullName>JOHN SMITH</ns3:PersonFullName>
+	  	</ns3:PersonName>
+	  </ns6:ServiceCallOperator>
+	  <ns3:SourceIDText>SUPP</ns3:SourceIDText>
+	</ns4:Comment>
+	<ns4:Comment>
+	  <ns3:CommentText>E830 TK828 E828 TK809 E809 E833 QT822 BO801</ns3:CommentText>
+	  <ns4:CommentDateTime><ns3:DateTime>2010-04-06T04:00:17</ns3:DateTime></ns4:CommentDateTime>
+	  <ns6:ServiceCallOperator>
+	  	<ns3:PersonName>
+	  		<ns3:PersonNamePrefixText>FD02</ns3:PersonNamePrefixText>
+	  		<ns3:PersonFullName>JOHN SMITH</ns3:PersonFullName>
+	  	</ns3:PersonName>
+	  </ns6:ServiceCallOperator>
+	  <ns3:SourceIDText>DISPATCH</ns3:SourceIDText>
+	</ns4:Comment>
+	<ns4:Comment>
+	  <ns3:CommentText>PF1000038181 Assigned</ns3:CommentText>
+	  <ns4:CommentDateTime><ns3:DateTime>2010-04-06T04:00:17</ns3:DateTime></ns4:CommentDateTime>
+	  <ns6:ServiceCallOperator>
+	  	<ns3:PersonName>
+	  		<ns3:PersonNamePrefixText>FD02</ns3:PersonNamePrefixText>
+	  		<ns3:PersonFullName>JOHN SMITH</ns3:PersonFullName>
+	  	</ns3:PersonName>
+	  </ns6:ServiceCallOperator>
+	  <ns3:SourceIDText>CASE</ns3:SourceIDText>
+	</ns4:Comment>
+        <ns4:Staging>
+          <ns3:ContactRadioChannelText>4</ns3:ContactRadioChannelText>
+        </ns4:Staging>
+	<ns4:IncidentId>
+	  <ns3:IdentificationID>PF20111032</ns3:IdentificationID>
+	</ns4:IncidentId>
+      </ns4:ServiceCallAugmentation>
+      <ns4:ServiceCallResponseLocation>
+        <ns3:LocationAddress>
+          <ns3:StructuredAddress>
+              <ns3:LocationStreet>
+                <ns3:StreetName>4714 67TH AVE</ns3:StreetName>
+                <ns3:StreetName>LANDOVER HILLS</ns3:StreetName>
+              </ns3:LocationStreet>
+          </ns3:StructuredAddress>
+        </ns3:LocationAddress>
+	<ns3:LocationTwoDimensionalGeographicCoordinate>
+	   <ns3:GeographicCoordinateLatitude>
+	      <ns3:LatitudeDegreeValue>0</ns3:LatitudeDegreeValue>
+	      <ns3:LatitudeMinuteValue>0</ns3:LatitudeMinuteValue>
+	      <ns3:LatitudeSecondValue>0</ns3:LatitudeSecondValue>
+	   </ns3:GeographicCoordinateLatitude>
+	   <ns3:GeographicCoordinateLongitude>
+	      <ns3:LongitudeDegreeValue>0</ns3:LongitudeDegreeValue>
+	      <ns3:LongitudeMinuteValue>0</ns3:LongitudeMinuteValue>
+	      <ns3:LongitudeSecondValue>0</ns3:LongitudeSecondValue>
+	   </ns3:GeographicCoordinateLongitude>
+	</ns3:LocationTwoDimensionalGeographicCoordinate>
+    <ns4:ServiceCallResponseLocationAugmentation>
+		  <ns4:Firebox>3001</ns4:Firebox>
+		  <ns4:MapGrid>5411 B 7</ns4:MapGrid>
+	</ns4:ServiceCallResponseLocationAugmentation>
+	<ns4:ServiceCallResponseLocationAugmentation>
+	  <ns4:LocationCrossStreet>
+	    <ns3:StreetName>WEBSTER ST</ns3:StreetName>
+	    <ns3:StreetName>REDFIELD AVE</ns3:StreetName>
+	  </ns4:LocationCrossStreet>
+        </ns4:ServiceCallResponseLocationAugmentation>
+      </ns4:ServiceCallResponseLocation>
+    </ns4:ServiceCall>
+    <ns4:ServiceCallAssignedUnit >
+      <ns3:OrganizationIdentification>
+        <ns3:IdentificationID>E828</ns3:IdentificationID>
+      </ns3:OrganizationIdentification>
+    </ns4:ServiceCallAssignedUnit>
+    <ns4:ServiceCallAssignedUnit >
+      <ns3:OrganizationIdentification>
+        <ns3:IdentificationID>TK828</ns3:IdentificationID>
+      </ns3:OrganizationIdentification>
+    </ns4:ServiceCallAssignedUnit>
+  </ns4:Payload>
+  <ns4:ExchangeMetadata>
+    <ns4:DataSubmitterMetadata>
+      <ns3:OrganizationIdentification>
+        <ns3:IdentificationID>ICAD-DISPATCH</ns3:IdentificationID>
+      </ns3:OrganizationIdentification>
+      <ns3:OrganizationName>PRINCE GEORGE'S COUNTY</ns3:OrganizationName>
+    </ns4:DataSubmitterMetadata>
+  </ns4:ExchangeMetadata>
+  <ns4:ExchangeMetadata>
+    <ns4:TransactionMetadata>
+      <ns4:MetadataAugmentation>
+        <ns4:SubmissionDateTime>
+          <ns3:DateTime>2010-11-18T21:34:20</ns3:DateTime>
+        </ns4:SubmissionDateTime>
+        <ns4:MessageSequenceNumber>
+          <ns3:IdentificationID>1001</ns3:IdentificationID>
+        </ns4:MessageSequenceNumber>
+      </ns4:MetadataAugmentation>
+    </ns4:TransactionMetadata>
+  </ns4:ExchangeMetadata>
+</fhwm:ICadDispatch>
